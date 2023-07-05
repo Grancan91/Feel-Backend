@@ -8,7 +8,6 @@ The `users` table stores the information of registered users in the application.
 
 | Column           | Type     | Description             |
 |------------------|----------|-------------------------|
-| id               | integer  | Primary key             |
 | name             | varchar  | User's name             |
 | age              | integer  | User's age              |
 | genre            | varchar  | User's gender           |
@@ -25,7 +24,6 @@ The `records` table stores the emotional records made by the users. Below is the
 
 | Column         | Type    | Description               |
 |----------------|---------|---------------------------|
-| id             | integer | Primary key               |
 | emotion        | varchar | Experienced emotion       |
 | emotion_url    | varchar | Emotion image URL         |
 | cause          | varchar | Cause of the emotion      |
