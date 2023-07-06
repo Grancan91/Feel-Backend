@@ -51,6 +51,7 @@ module.exports = User;
 
 // Añadir Emociones
 // Añadir Causas
+// Añadir Estrategias
 
 /* userSchema.methods.welcome = function welcome() {
     const greeting = this.name && 'Welcome ' + this.name
