@@ -38,11 +38,19 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  records: [
+    { type: mongoose.Schema.Types.ObjectId, 
+      ref: 'record'
+    }
+  ]
   });
 
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model("user", UserSchema);
 
 module.exports = User;
+
+// Añadir Emociones
+// Añadir Causas
 
 /* userSchema.methods.welcome = function welcome() {
     const greeting = this.name && 'Welcome ' + this.name
