@@ -1,15 +1,15 @@
-const createUser = require('./api/models/userModel')
-const connection = require('./db')
+const { createUser } = require('./api/controllers/user_controller')
+const dbConnect = require('./db')
 const express = require('express');
 const app = express();
-const userRouter = require('./api/routers/userRouter');
+const router = require('./api/routers/index');
 
 //Start Backend-Server
 const start = async () => {
-    await connection()
-    createUser()
+    await dbConnect()
+    //createUser()
     
-    app.use('/api', userRouter);
+    app.use('/api', router);
     // Other middleware and configuration...
     app.listen(3000, () => {
         console.log('Waiting requests')

@@ -1,7 +1,22 @@
-const mongoose = require('mongoose');
-const userSchema = require('../schemas/userSchema')
+const User = require("../models/user_model");
 
-const User = mongoose.model('User', userSchema);
+
+// GET all users
+const getUsers = async (req, res) => {
+    try {
+        const userList = await User.find();
+        if (userList.length > 0) {
+            res.json(userList);
+        } else {
+            console.log('No users found');
+            res.json({ 'User': 'No users available' });
+        }
+    } catch (error) {
+        console.error('Error retrieving users:');
+        console.log(error)
+        res.status(500).json({ error: 'Error retrieving users' });
+    }
+};
 
 const createUser = () => {
     try {
@@ -9,7 +24,7 @@ const createUser = () => {
             name: 'Silence',
             age: 25,
             genre: 'Male',
-            email: 'silence3@example.com',
+            email: 'silence5@example.com',
             password: 'mypassword',
             professional_email: 'professional@example.com',
             reminder_day: 1,
@@ -17,7 +32,7 @@ const createUser = () => {
             reminder_send: new Date()
         });
         console.log(user.reminder_send);
-        user.welcome()
+        
         try {
             user.save()
             console.log('User Saved')
@@ -29,4 +44,4 @@ const createUser = () => {
       }
 }
 
-module.exports = createUser;
+module.exports = { getUsers, createUser };

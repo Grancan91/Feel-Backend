@@ -1,12 +1,52 @@
-const express = require('express');
+const router = require("express").Router();
+const { getUsers } = require("../controllers/user_controller");
+
+
+router.get('/', getUsers)
+
+module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* const express = require('express');
 const router = express.Router();
 const User = require('../models/userModel');
 
 // GET all users
 router.get('/users', async (req, res) => {
     try {
-        const users = await User.find();
-        res.json(users);
+        const userList = await User.find();
+        if (users) {
+            res.json(users);
+        } else {
+            console.log('Not users')
+            res.json({'User': 'Not users available'})
+        }
     } catch (error) {
         console.error('Error retrieving users:', error);
         res.status(500).json({ error: 'Error retrieving users' });
@@ -67,4 +107,4 @@ router.delete('/users/:id', async (req, res) => {
     }
 });
 
-module.export = router;
+ */
