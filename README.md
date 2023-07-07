@@ -67,3 +67,56 @@ The `strategies` table stores the Strategy posibilities for records. Below is th
 
 
 This README provides a basic description of the `users`, `records`, `emotions`, `causes`, `symptoms` and `strategies` table structures used in the Feel application backend.
+
+
+// Steps:
+
+## Models
+ - User - Ok
+ - Record - Ok // Test
+ - Emotion - Ok // Test
+ - Cause - Ok // Test
+ - Symptom- Ok // Test
+ - Strategy - Ok // Test
+
+// Definition of EndPoints
+
+// Auth User - Ok
+// Middleware for Auth - 
+
+// Users
+- Create User - Ok
+- Load User - Ok
+- Update User
+
+// Records
+- Create Record
+- Update Record
+- Delete Record
+- Load Records
+
+- Load Cuantity of Records from a Day
+- Load % of 3 most used Emotions from Total Records
+- Load % of 3 most used Causes from Total Records
+- Load % of 3 most used Strategies from Total Records
+
+// Emotions
+- Load Emotions
+
+// Causes
+- Create Cause
+- Delete Cause
+- Load Causes
+
+// Strategies
+- Create Strategy
+- Delete Strategy
+- Load Strategys
+
+// Symptoms
+- Create Symptom
+- Delete Symptom
+- Load Symptoms
+
+
+

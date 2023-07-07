@@ -1,46 +1,41 @@
 const mongoose = require("mongoose");
 
 const RecordSchema = new mongoose.Schema({
-  emotion: {
-    type: String,
-    required: true,
-  },
-  emotion_url: {
-    type: String,
-    required: true,
-  },
-  cause: {
-    type: String,
-    required: true,
-  },
-  symptom: {
-    type: String,
-    required: true,
-  },
-  strategy: {
-    type: String,
-    required: true,
-  },
   detail: {
     type: String,
-    required: true,
+    required: false,
   },
   record_date: {
     type: Date,
-    required: true,
+    default: Date.now,
   },
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "user",
-  },
+  emotions: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'emotion'
+    }
+  ],
+  causes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'cause'
+    }
+  ],
+  symptoms: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'symptom'
+    }
+  ],
+  strategies: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'strategy'
+    }
+  ],
 });
 
 const Record = mongoose.model("record", RecordSchema);
 
 module.exports = Record;
-
-/* userSchema.methods.welcome = function welcome() {
-    const greeting = this.name && 'Welcome ' + this.name
-    console.log(greeting);
-  } */
 
