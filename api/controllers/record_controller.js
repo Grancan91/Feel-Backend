@@ -1,13 +1,19 @@
 
 const Record = require('../models/record_model');
+const User = require('../models/user_model');
 
 //Create new Record
 const createRecord = async (req, res) => {
     try {
         //Create Record from req.body
         const record = await Record.create(req.body)
+        // Save the reference to the user model
+        // Take res.locals.user from checkAuth
+        const user = await User.findById(res.locals.user.id);
+        user.records.push(record.id)
+        user.save()
         //Return a Record created
-        return res.status(200).json(record);
+        return res.status(200).json(user.records);
     } catch (error) {
         if (error.name === 'ValidationError') {
             //If Emotions empty
