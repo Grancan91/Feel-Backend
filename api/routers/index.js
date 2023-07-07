@@ -1,13 +1,17 @@
 const router = require('express').Router()
 
-// Set up routes for '/auth'
-//router.use('/auth', ()=> {console.log('hola')})
-router.use('/auth', require('./auth_router'))
+        
+router
+    // Set up routes for '/auth'
+    .use('/auth', require('./auth_router'))
+    // Set up routes for '/auth'
+    .use('/record', require('./record_router'))
 
-// Set up routes for '/user'
-router.use('/user', require('./user_router'))
 
-// Set up routes for '/record'
 
+
+
+    // Set up routes for '/user' for TEST 
+    .use('/user', require('./user_router'))
 
 module.exports = router;
