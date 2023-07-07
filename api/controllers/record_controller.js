@@ -7,10 +7,14 @@ const createRecord = async (req, res) => {
     try {
         //Create Record from req.body
         const record = await Record.create(req.body)
-        // Save the reference to the user model
-        // Take res.locals.user from checkAuth
-        const user = await User.findById(res.locals.user.id);
+        
+        //Save the reference to the user model    
+        
+        //Load user model
+        const user = await User.findById(res.locals.user.id); // res.locals.user from checkAuth
+        //Insert Record.id in the user => records array.
         user.records.push(record.id)
+        //Save document
         user.save()
         //Return a Record created
         return res.status(200).json(user.records);
@@ -23,6 +27,11 @@ const createRecord = async (req, res) => {
         }
     }
 }
+
+/*
+Esta cargando todos los records indiscriminadamente, hacer que cargue solo lo snecesarios
+*/
+
 
 //Load all Records of User
 const loadRecords = async (req, res) => {

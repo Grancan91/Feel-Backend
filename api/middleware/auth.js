@@ -12,7 +12,6 @@ const checkAuth = (req, res, next) => {
             return res.status(403).send(error)
         }
         res.locals.user = user
-        console.log('Authenticated')
         next()
     })
 }
