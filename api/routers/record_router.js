@@ -1,16 +1,17 @@
 const router = require("express").Router();
+const { createRecord, loadRecords } = require("../controllers/record_controller");
 //Methods from controller to use in endPoints
 const {} = require("../controllers/record_controller"); 
 
 
 router
-    // Post to create Record
-    .post('/', () => {console.log('hi record')}) //createRecord
-    // Put to Update Record
-    .put('/:recordId', ) //updateRecord
-    // Delete to Delete a Record
-    .delete('/:recordId',) // loadRecords
     // Get to Load All Records
-    .get('/', ) // loadRecords
+    .get('/', loadRecords) // loadRecords
+    // Post to create Record
+    .post('/', createRecord )
+    // Put to Update Record
+    .put('/:recordId', )
+    // Delete to Delete a Record
+    .delete('/:recordId',)
 
 module.exports = router;

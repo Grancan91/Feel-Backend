@@ -17,6 +17,12 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+    validate: {
+      validator: function (emotions) {
+        return emotions.length > 0;
+      },
+      message: 'El campo "email" es requerido.',
+    },
   },
   password: {
     type: String,

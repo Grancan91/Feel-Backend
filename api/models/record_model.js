@@ -9,12 +9,18 @@ const RecordSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  emotions: [
-    {
+  emotions: {
+    type: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'emotion'
-    }
-  ],
+    }],
+    validate: {
+      validator: function (emotions) {
+        return emotions.length > 0;
+      },
+      message: 'El campo "emotions" es requerido.',
+    },
+  },
   causes: [
     {
       type: mongoose.Schema.Types.ObjectId,

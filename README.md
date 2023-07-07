@@ -73,7 +73,7 @@ This README provides a basic description of the `users`, `records`, `emotions`, 
 
 ## Models
  - User - Ok
- - Record - Ok // Test
+ - Record - Ok
  - Emotion - Ok // Test
  - Cause - Ok // Test
  - Symptom- Ok // Test
@@ -87,10 +87,11 @@ This README provides a basic description of the `users`, `records`, `emotions`, 
 // Users
 - Create User - Ok
 - Load User - Ok
+- Load User - Records: 
 - Update User
 
 // Records
-- Create Record
+- Create Record - Ok
 - Update Record
 - Delete Record
 - Load Records
