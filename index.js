@@ -9,10 +9,13 @@ const router = require('./api/routers/index');
 const start = async () => {
     await dbConnect()
     
+    //Json parser for body request.
     app.use(express.json())
+    //Index Router
     app.use('/api', router);
     // Other middleware and configuration...
-    app.listen(3000, () => {
+    //API Start
+    app.listen(process.env.PORT, () => {
         console.log('Waiting requests')
     })
 }

@@ -79,22 +79,25 @@ This README provides a basic description of the `users`, `records`, `emotions`, 
  - Symptom- Ok // Test
  - Strategy - Ok // Test
 
+  -Json for Default Options
+
 // Definition of EndPoints
 
 // Auth User - Ok
 // Middleware for Auth - 
 
 // Users
+
 - Create User - Ok
 - Load User - Ok
-- Load User - Records: 
 - Update User
 
 // Records
-- Create Record - Ok
+- Create Record && Save in User.Records[]- Ok
+- Load Records of User - Ok 
 - Update Record
 - Delete Record
-- Load Records
+
 
 - Load Cuantity of Records from a Day
 - Load % of 3 most used Emotions from Total Records

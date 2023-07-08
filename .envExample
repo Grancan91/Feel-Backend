@@ -1,7 +1,7 @@
 //API Listen Port
-PORT = 3000
+PORT = 
 
 //BCrypt Configuration
-SALT_ROUNDS = 10
+SALT_ROUNDS = 
 //Json web Token Configuration
-JWT_SECRET = JWT_SECRET
+JWT_SECRET = 
