@@ -1,10 +1,12 @@
 const router = require("express").Router();
 //Methods from controller to use in endPoints
-//const {  } = require("../controllers/cause_controller");
+const { loadStrategy, createStrategy } = require("../controllers/strategy_controller");
+const { checkAuth } = require("../middleware/auth");
 
 router
-    // Get to Load Causes List
-    .get('/', ) //checkAuth don't needed.
-  
+    // Get to Load Strategy List
+    .get('/', checkAuth, loadStrategy )   
+    // Post to Create Strategy
+    .post('/', checkAuth, createStrategy )
 
 module.exports = router;

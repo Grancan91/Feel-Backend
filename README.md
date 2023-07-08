@@ -107,13 +107,13 @@ This README provides a basic description of the `users`, `records`, `emotions`, 
 // Delete Cause Not contempled for MVP 1 
 
 # Strategies
-- Load Strategys -
-- Create Strategy -
+- Load Strategys - ok
+- Create Strategy - ok
 // Delete Strategy Not contempled for MVP 1 
 
 # Symptoms
-- Load Symptoms -
-- Create Symptom -
+- Load Symptoms - ok
+- Create Symptom - ok
 // Delete Symptom Not contempled for MVP 1 
 
 
