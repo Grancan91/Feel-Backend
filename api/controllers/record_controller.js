@@ -28,11 +28,6 @@ const createRecord = async (req, res) => {
     }
 }
 
-/*
-Esta cargando todos los records indiscriminadamente, hacer que cargue solo lo snecesarios
-*/
-
-
 //Load all Records of User
 const loadUserRecords = async (req, res) => {
     try {

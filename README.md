@@ -90,7 +90,7 @@ This README provides a basic description of the `users`, `records`, `emotions`, 
 
 - Create User - Ok
 - Load User - Ok
-- Update User
+- Update User - Ok
 
 // Records
 - Create Record && Save in User.Records[]- Ok

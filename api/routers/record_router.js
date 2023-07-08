@@ -1,7 +1,6 @@
 const router = require("express").Router();
-const { createRecord, loadUserRecords } = require("../controllers/record_controller");
 //Methods from controller to use in endPoints
-const {} = require("../controllers/record_controller"); 
+const { createRecord, loadUserRecords } = require("../controllers/record_controller");
 const { checkAuth } = require("../middleware/auth");
 
 router
