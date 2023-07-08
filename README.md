@@ -68,59 +68,52 @@ The `strategies` table stores the Strategy posibilities for records. Below is th
 
 This README provides a basic description of the `users`, `records`, `emotions`, `causes`, `symptoms` and `strategies` table structures used in the Feel application backend.
 
-
-// Steps:
+### Steps:
 
 ## Models
  - User - Ok
  - Record - Ok
- - Emotion - Ok // Test
- - Cause - Ok // Test
- - Symptom- Ok // Test
- - Strategy - Ok // Test
-
+ - Emotion - Ok
+ - Cause - Ok
+ - Symptom- Ok
+ - Strategy - Ok
   -Json for Default Options
 
-// Definition of EndPoints
+## Definition of EndPoints
+ - Auth User - Ok
+ - Middleware for Auth - Ok
 
-// Auth User - Ok
-// Middleware for Auth - 
-
-// Users
-
+# Users
 - Create User - Ok
 - Load User - Ok
 - Update User - Ok
 
-// Records
+# Records
 - Create Record && Save in User.Records[]- Ok
 - Load Records of User - Ok 
-//- Update Record Not contempled for MVP 1
 - Delete Record - Ok
-
-
+//- Update Record Not contempled for MVP 1
 - Load Cuantity of Records from a Day
 - Load % of 3 most used Emotions from Total Records
 - Load % of 3 most used Causes from Total Records
 - Load % of 3 most used Strategies from Total Records
 
-// Emotions
-- Load Emotions
+# Emotions
+- Load Emotions - Ok
 
-// Causes
-- Create Cause
-- Delete Cause
-- Load Causes
+# Causes
+- Load Causes - ok
+- Create Cause - ok
+// Delete Cause Not contempled for MVP 1 
 
-// Strategies
-- Create Strategy
-- Delete Strategy
-- Load Strategys
+# Strategies
+- Load Strategys -
+- Create Strategy -
+// Delete Strategy Not contempled for MVP 1 
 
-// Symptoms
-- Create Symptom
-- Delete Symptom
-- Load Symptoms
-
+# Symptoms
+- Load Symptoms -
+- Create Symptom -
+// Delete Symptom Not contempled for MVP 1 
 
 
