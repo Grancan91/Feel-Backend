@@ -95,8 +95,8 @@ This README provides a basic description of the `users`, `records`, `emotions`, 
 // Records
 - Create Record && Save in User.Records[]- Ok
 - Load Records of User - Ok 
-- Update Record
-- Delete Record
+//- Update Record Not contempled for MVP 1
+- Delete Record - Ok
 
 
 - Load Cuantity of Records from a Day

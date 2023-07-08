@@ -1,17 +1,15 @@
 const router = require("express").Router();
 //Methods from controller to use in endPoints
-const { createRecord, loadUserRecords } = require("../controllers/record_controller");
+const { createUserRecord, loadUserRecords, deleteUserRecord } = require("../controllers/record_controller");
 const { checkAuth } = require("../middleware/auth");
 
 router
     // CheckAuth save user.id in res.locals
     // Get to Load All Records
-    .get('/', checkAuth, loadUserRecords) //loadUserRecords need res.locals.user
+    .get('/', checkAuth, loadUserRecords ) //loadUserRecords need res.locals.user
     // Post to create Record
-    .post('/', checkAuth , createRecord ) //createRecord need res.locals.user
-    // Put to Update Record
-    .put('/:recordId', )
+    .post('/', checkAuth , createUserRecord ) //createUserRecord need res.locals.user
     // Delete to Delete a Record
-    .delete('/:recordId',)
+    .delete('/:recordId', checkAuth, deleteUserRecord ) //deleteUserRecord need res.locals.user
 
 module.exports = router;
