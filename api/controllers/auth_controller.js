@@ -12,9 +12,9 @@ const signUp = async (req, res) => {
         return res.status(200).json({'token': token});
     } catch (error) {
         if (error.code === 11000) {
-            res.json({'error':'User already exists', 'status': 500});
+            res.json({'code': 11000, 'error':'User already exists', 'status': 500});
         } else {
-            console.log(error)
+            //console.log(error)
             res.status(500).json({ error: 'Error in signUp user' });
         }
     }
@@ -36,6 +36,7 @@ const logIn = async (req, res) => {
                     userDetails.token = token
                     userDetails.name = user.name
                     userDetails.email = user.email
+                    userDetails.reminder_freq = user.reminder_freq
                     userDetails.id = user.id
                     return res.status(200).json({ userDetails });
                 }

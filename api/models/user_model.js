@@ -32,17 +32,17 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  reminder_day: {
+  reminder_freq: {
     type: Number,
-    default: 1,
+    default: 0,
   },
-  reminder_hour: {
+  reminder_time: {
     type: String,
-    default: '12:00',
+    //default: '12:00',
   },
   reminder_send: {
     type: Date,
-    default: Date.now,
+    //default: Date.now,
   },
   records: [
     { type: mongoose.Schema.Types.ObjectId, 

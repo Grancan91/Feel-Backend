@@ -5,8 +5,9 @@ const { checkAuth } = require("../middleware/auth");
 
 router
      //Set userId res.locals.user => checkAuth
+
      //Signed Up User update
-    .put('/', checkAuth, updateUser) 
+    .patch('/', checkAuth, updateUser)
 
 module.exports = router;
 
