@@ -1,5 +1,6 @@
 
 require('dotenv').config();
+const cors = require('cors');
 const dbConnect = require('./db')
 const express = require('express');
 const app = express();
@@ -9,6 +10,7 @@ const router = require('./api/routers/index');
 const start = async () => {
     await dbConnect()
     
+    app.use(cors())
     app.use(express.json())
     app.use('/api', router);
     // Other middleware and configuration...

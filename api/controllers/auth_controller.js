@@ -10,10 +10,10 @@ const signUp = async (req, res) => {
         //REMEMBER CHANGE EXPIRATES SESSION 
         //Save Token for Autologin
         const token = jwt.sign({ email: user.email, id: user.id }, process.env.JWT_SECRET, { expiresIn: '1y' })
-        return res.status(200).json(token);
+        return res.status(200).json({'token': token});
     } catch (error) {
         if (error.code === 11000) {
-            res.status(500).json('User already exists');
+            res.json({'error':'User already exists', 'status': 500});
         } else {
             console.log(error)
             res.status(500).json({ error: 'Error in signUp user' });
