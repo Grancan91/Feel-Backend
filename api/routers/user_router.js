@@ -1,8 +1,12 @@
 const router = require("express").Router();
-const { getUsers } = require("../controllers/user_controller");
+//Methods from controller to use in endPoints
+const { updateUser } = require("../controllers/user_controller");
+const { checkAuth } = require("../middleware/auth");
 
-
-router.get('/', getUsers)
+router
+     //Set userId res.locals.user => checkAuth
+     //Signed Up User update
+    .put('/', checkAuth, updateUser) 
 
 module.exports = router;
 

@@ -7,7 +7,6 @@ const signUp = async (req, res) => {
     try {
         req.body.password = bcrypt.hashSync(req.body.password, 10);
         const user = await User.create(req.body)
-        //REMEMBER CHANGE EXPIRATES SESSION 
         //Save Token for Autologin
         const token = jwt.sign({ email: user.email, id: user.id }, process.env.JWT_SECRET, { expiresIn: '1y' })
         return res.status(200).json({'token': token});

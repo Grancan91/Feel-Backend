@@ -12,9 +12,11 @@ const start = async () => {
     
     app.use(cors())
     app.use(express.json())
+    //Index Router
     app.use('/api', router);
     // Other middleware and configuration...
-    app.listen(3000, () => {
+    //API Start
+    app.listen(process.env.PORT, () => {
         console.log('Waiting requests')
     })
 }
