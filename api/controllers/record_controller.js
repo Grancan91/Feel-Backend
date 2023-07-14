@@ -38,7 +38,12 @@ const loadUserRecords = async (req, res) => {
         const recordsId = user.records
         //Load Records associated to user
         const record = await Record.find({ _id: {$in: recordsId} })
-        //Return a Records found.
+        .populate("emotions")
+        .populate("causes")
+        .populate("symptoms")
+        .populate("strategies")
+
+
         if (record) {
             return res.status(200).json(record);
         } else {
