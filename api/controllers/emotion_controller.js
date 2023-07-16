@@ -17,4 +17,5 @@ const loadEmotions = async (req, res) => {
     }
 }
 
+
 module.exports = { loadEmotions }

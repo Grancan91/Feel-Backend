@@ -4,7 +4,8 @@ const { loadEmotions } = require("../controllers/emotion_controller");
 
 router
     // Get to Load Emotions List
-    .get('/', loadEmotions ) //checkAuth don't needed.
+    .get('/', loadEmotions )
+
   
 
 module.exports = router;

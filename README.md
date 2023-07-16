@@ -10,7 +10,7 @@ The `users` table stores the information of registered users in the application.
 |------------------  |----------    |-------------------------|
 | name               | varchar      | User's name             |
 | age                | integer      | User's age              |
-| genre              | varchar      | User's gender           |
+| genre  [Eliminar]  | varchar      | User's gender           |
 | email              | varchar      | User's email            |
 | password           | varchar      | User's password         |
 | professional_email | varchar      | Professional's email    |

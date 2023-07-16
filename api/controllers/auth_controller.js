@@ -38,6 +38,7 @@ const logIn = async (req, res) => {
                     userDetails.email = user.email
                     userDetails.reminder_freq = user.reminder_freq
                     userDetails.id = user.id
+                    console.log(userDetails)
                     return res.status(200).json({ userDetails });
                 }
                 return res.status(400).send("User or password incorrect.")
