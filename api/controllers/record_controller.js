@@ -4,58 +4,58 @@ const User = require('../models/user_model');
 
 //Create new Record
 const createUserRecord = async (req, res) => {
-    try {
-        //Create Record from req.body
-        const record = await Record.create(req.body)
-        
-        //Save the reference to the user model
-        
-        //Load user model
-        const user = await User.findById(res.locals.user.id); // res.locals.user from checkAuth
-        //Insert Record.id in the user => records array.
-        user.records.push(record.id)
-        //Save document
-        user.save()
-        //Return a Record created
-        return res.status(200).json(user.records);
-    } catch (error) {
-        if (error.name === 'ValidationError') {
-            //If Emotions empty
-            return res.status(400).send(error.message)
-        } else {
-            return res.status(500).json({ error: 'Error in createUserRecord' });
-        }
+  try {
+    //Create Record from req.body
+    const record = await Record.create(req.body)
+
+    //Save the reference to the user model
+
+    //Load user model
+    const user = await User.findById(res.locals.user.id); // res.locals.user from checkAuth
+    //Insert Record.id in the user => records array.
+    user.records.push(record.id)
+    //Save document
+    user.save()
+    //Return a Record created
+    return res.status(200).json(user.records);
+  } catch (error) {
+    if (error.name === 'ValidationError') {
+      //If Emotions empty
+      return res.status(400).send(error.message)
+    } else {
+      return res.status(500).json({ error: 'Error in createUserRecord' });
     }
+  }
 }
 
 //Load all Records of Signed up User
 const loadUserRecords = async (req, res) => {
-    try {
-      
-        //Load Signed up user.ç
-        console.log(res.locals.user.id)
-        const user = await User.findById(res.locals.user.id) // res.locals.user from checkAuth
-        console.log(user)
+  try {
 
-        //Records of user
-        const recordsId = user.records
-        console.log(user.records)
-        //Load Records associated to user
-        const record = await Record.find({ _id: {$in: recordsId} })
-        .populate("emotions")
-        .populate("causes")
-        .populate("symptoms")
-        .populate("strategies")
+    //Load Signed up user.ç
+    console.log(res.locals.user.id)
+    const user = await User.findById(res.locals.user.id) // res.locals.user from checkAuth
+    console.log(user)
+
+    //Records of user
+    const recordsId = user.records
+    console.log(user.records)
+    //Load Records associated to user
+    const record = await Record.find({ _id: { $in: recordsId } })
+      .populate("emotions")
+      .populate("causes")
+      .populate("symptoms")
+      .populate("strategies")
 
 
-        if (record) {
-            return res.status(200).json(record);
-        } else {
-            return res.status(400).send(`No records found for ${res.locals.user.email} user`)
-        }
-    } catch (error) {
-        return res.status(500).json({ error: 'Error in loadUserRecords' });
+    if (record) {
+      return res.status(200).json(record);
+    } else {
+      return res.status(400).send(`No records found for ${res.locals.user.email} user`)
     }
+  } catch (error) {
+    return res.status(500).json({ error: 'Error in loadUserRecords' });
+  }
 }
 
 //Load all Records of Signed up User
@@ -68,7 +68,7 @@ const loadPatientRecords = async (req, res) => {
     console.log(userId)
     const user = await User.findById(userId) // res.locals.user from checkAuth
 
-    console.log('ostras',user)
+    console.log('ostras', user)
 
     //Records of user
     const recordsId = user.records
@@ -94,44 +94,46 @@ const loadPatientRecords = async (req, res) => {
 
 //Delete a Record of Signed Up User
 const deleteUserRecord = async (req, res) => {
-    try {
-        //Signed up userId.
-        const userId = res.locals.user.id // res.locals.user from checkAuth
-        //RecordId to delete.
-        const recordId = req.params.recordId
+  try {
+    //Signed up userId.
+    const userId = res.locals.user.id // res.locals.user from checkAuth
+    //RecordId to delete.
+    const recordId = req.params.recordId
 
-        const user = await User.findByIdAndUpdate(
-            userId,
-            { $pull: { records: recordId } },
-            { new: true }
-          );
+    const user = await User.findByIdAndUpdate(
+      userId,
+      { $pull: { records: recordId } },
+      { new: true }
+    );
 
-        if (user) {
-            return res.status(200).json(user);
-        } else {
-            return res.status(400).send(`No records found for ${res.locals.user.email} user`)
-        }
-    } catch (error) {
-        return res.status(500).json({ error: 'Error in deleteUserRecord' });
+    if (user) {
+      return res.status(200).json(user);
+    } else {
+      return res.status(400).send(`No records found for ${res.locals.user.email} user`)
     }
+  } catch (error) {
+    return res.status(500).json({ error: 'Error in deleteUserRecord' });
+  }
 }
 
 // Controlador para el endpoint que calcula la media de aparición de emociones
 const calculateAverageEmotions = async (req, res) => {
+  console.log('koasdjhaskdaksjldhaksdhakjsdhasd')
   try {
-       //Load Signed up user.ç
-        const user = await User.findById(res.locals.user.id) // res.locals.user from checkAuth
-        console.log('loaduserRecords')
+    console.log(res.locals.user.id)
+    //Load Signed up user.ç
+    const user = await User.findById(res.locals.user.id) // res.locals.user from checkAuth
+    console.log('loaduserRecords')
 
-        //Records of user
-        const recordsId = user.records
-        //Load Records associated to user
-        const records = await Record.find({ _id: {$in: recordsId} })
-        .populate("emotions")
-        .populate("causes")
-        .populate("symptoms")
-        .populate("strategies")
- const emotionCounts = {};
+    //Records of user
+    const recordsId = user.records
+    //Load Records associated to user
+    const records = await Record.find({ _id: { $in: recordsId } })
+      .populate("emotions")
+      .populate("causes")
+      .populate("symptoms")
+      .populate("strategies")
+    const emotionCounts = {};
     const causeCounts = {};
     const strategyCounts = {};
 
