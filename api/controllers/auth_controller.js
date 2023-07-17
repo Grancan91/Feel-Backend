@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const signUp = async (req, res) => {
     try {
         req.body.password = bcrypt.hashSync(req.body.password, 10);
+        console.log("body:", req.body)
         const user = await User.create(req.body)
         //Save Token for Autologin
         const token = jwt.sign({ email: user.email, id: user.id }, process.env.JWT_SECRET, { expiresIn: '1y' })

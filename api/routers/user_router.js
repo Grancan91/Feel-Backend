@@ -1,6 +1,6 @@
 const router = require("express").Router();
 //Methods from controller to use in endPoints
-const { updateUser } = require("../controllers/user_controller");
+const { updateUser, loadUsers } = require("../controllers/user_controller");
 const { checkAuth } = require("../middleware/auth");
 
 router
@@ -8,6 +8,7 @@ router
 
      //Signed Up User update
     .patch('/', checkAuth, updateUser)
+    .get('/', checkAuth, loadUsers)
 
 module.exports = router;
 
@@ -15,7 +16,7 @@ module.exports = router;
 
 
 
-
+ 
 
 
 

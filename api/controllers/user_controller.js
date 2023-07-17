@@ -21,5 +21,20 @@ const updateUser = async (req, res) => {
     return res.status(500).json({ error: 'Error updating the user' });
   }
 }
+//Load users
+const loadUsers = async (req, res) => {
+  try {
+    const proEmail = res.locals.user.email
+    console.log(proEmail)
+    const users = await User.find({ professional_email: proEmail });
 
-module.exports = { updateUser }
+    if (!users) {
+      return res.status(404).json({ error: 'Users not found' });
+    }
+    return res.status(200).json(users);
+
+  } catch (error) {
+    return res.status(500).json({ error: 'Error updating the user' });
+  }
+}
+module.exports = { loadUsers, updateUser }

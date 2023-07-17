@@ -48,6 +48,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: 'user',
   },
+  img: {
+    type: String,
+    default: 'https://openmoji.org/data/color/svg/1F468-200D-1F9B2.svg',
+  },
   records: [
     {
       type: mongoose.Schema.Types.ObjectId,
