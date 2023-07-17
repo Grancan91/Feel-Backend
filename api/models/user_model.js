@@ -44,12 +44,17 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     //default: Date.now,
   },
+  rol: {
+    type: String,
+    default: 'user',
+  },
   records: [
-    { type: mongoose.Schema.Types.ObjectId, 
+    {
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'record'
     }
   ]
-  });
+});
 
 const User = mongoose.model("user", UserSchema);
 

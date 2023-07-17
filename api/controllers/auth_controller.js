@@ -37,6 +37,7 @@ const logIn = async (req, res) => {
                     userDetails.name = user.name
                     userDetails.email = user.email
                     userDetails.reminder_freq = user.reminder_freq
+                    userDetails.rol = user.rol
                     userDetails.id = user.id
                     console.log(userDetails)
                     return res.status(200).json({ userDetails });
@@ -50,6 +51,7 @@ const logIn = async (req, res) => {
         return res.status(500).send("Error in logIn user", error)
     }
 }
+
 
 
 module.exports = { signUp, logIn }
