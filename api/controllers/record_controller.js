@@ -118,10 +118,10 @@ const deleteUserRecord = async (req, res) => {
 
 // Controlador para el endpoint que calcula la media de aparición de emociones
 const calculateAverageEmotions = async (req, res) => {
-  console.log('koasdjhaskdaksjldhaksdhakjsdhasd')
+  
   try {
     console.log(res.locals.user.id)
-    //Load Signed up user.ç
+    //Load Signed up user
     const user = await User.findById(res.locals.user.id) // res.locals.user from checkAuth
     console.log('loaduserRecords')
 
@@ -153,8 +153,10 @@ const calculateAverageEmotions = async (req, res) => {
     });
 
     // Ordenar las emociones, causas y estrategias según su frecuencia de aparición en orden descendente
-    const sortedEmotions = Object.keys(emotionCounts).sort(
-      (emotionA, emotionB) => emotionCounts[emotionB] - emotionCounts[emotionA]
+    const sortedEmotions = 
+    Object.keys(emotionCounts).sort(
+      (emotionA, emotionB) => emotionCounts[emotionB] 
+      - emotionCounts[emotionA]
     );
     const sortedCauses = Object.keys(causeCounts).sort(
       (causeA, causeB) => causeCounts[causeB] - causeCounts[causeA]
@@ -205,6 +207,7 @@ const calculateAverageEmotions = async (req, res) => {
 
 const calculateAverageEmotionsPatient = async (req, res) => {
   try {
+    console.log('koasdjhaskdaksjldhaksdhakjsdhasd')
 
     const userId = req.params.patientId
     //Load Signed up user.ç
@@ -222,7 +225,6 @@ const calculateAverageEmotionsPatient = async (req, res) => {
     const emotionCounts = {};
     const causeCounts = {};
     const strategyCounts = {};
-
 
     // Contar la frecuencia de aparición de cada emoción, causa y estrategia en los registros
     records.forEach((record) => {

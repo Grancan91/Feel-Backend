@@ -8,7 +8,7 @@ router
     // Get to Load All Records
     .get('/', checkAuth, loadUserRecords ) //loadUserRecords need res.locals.user
     // Get to Load All Patients Records
-    .get('/:patientId', checkAuth, calculateAverageEmotionsPatient) //loadUserRecords need res.locals.user
+    .get('/average/:patientId', checkAuth, calculateAverageEmotionsPatient) //loadUserRecords need res.locals.user
     // Get Average Emotions on Records
     .get('/average', checkAuth, calculateAverageEmotions ) //calculateAverageEmotions need res.locals.user
     // Post to create Record
